@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Italiana&family=Roboto+Flex:opsz,wght@8..144,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Tranquil Travels</title>
+  </head>
+  <body>
+    <nav class="fixed-navigation">
+      <img class="logo" src="../Assets/logo.svg" />
+      <ul class="nav-links">
+        <li><a class="nav-link" href="#">Home</a></li>
+        <li><a class="nav-link" href="#browse">Browse</a></li>
+        <li><a class="nav-link" href="#rent">Rent with us</a></li>
+        <li><a class="nav-link" href="#">Sign up</a></li>
+        <button class="button primary">Log in</button>
+      </ul>
+      <button class="button primary hidden">Menu</button>
+    </nav>
+    <section class="grid card-detail">
+      <div class="detail-view">
+        <h1 class="title-large detail-view-title">Serene Retreat</h1>
+        <div class="detail-view-img"></div>
+      </div>
+      <div class="detail-info">
+        <div class="detail-info-essentials">
+          <h4><span class="bold">Location:</span> Madrid</h4>
+          <h4><span class="bold">Local category:</span> ★★★★☆</h4>
+          <h4><span class="bold">Price:</span> 70€/room/night</h4>
+          <div class="detail-info-essentials-description">
+            <h4><span class="bold">Description:</span></h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec
+              leo ligula. Etiam fermentum est in euismod egestas. Curabitur at
+              condimentum ligula. Phasellus nunc velit, facilisis fermentum
+              congue ac, cursus at leo. Interdum et malesuada fames ac ante
+              ipsum primis in faucibus. Nullam nec sapien vitae neque
+              scelerisque tempus. Vestibulum hendrerit tellus ut pulvinar
+              feugiat. Nullam iaculis vitae justo sit amet tempus. Nam nunc
+              nunc, porttitor sed turpis quis, feugiat egestas leo. Phasellus
+              consequat magna ante, ac aliquam felis convallis sit amet. Sed
+              massa lorem, iaculis ac vestibulum ac, tempus a tortor. Ut posuere
+              ipsum nec condimentum vehicula. Curabitur orci velit, aliquam vel
+              arcu quis, semper congue ligula.
+            </p>
+          </div>
+        </div>
+        <button id="openDialog" class="detail-info-button">
+          Contact <img src="../Assets/Mail.svg" />
+        </button>
+        <div class="detail-info-images">
+          <img class="detail-info-image" src="../Assets/cards2.jpg" />
+          <img class="detail-info-image" src="../Assets/cards2.jpg" />
+        </div>
+      </div>
+      <dialog id="myDialog" class="dialog">
+        <div class="dialog-close">
+          <button id="closeDialog"><img src="../Assets/Close.svg" /></button>
+        </div>
+        <div class="dialog-content">
+          <h1>Contact</h1>
+          <p>You’re contacting the [hotel name] hotel</p>
+          <input type="text" />
+        </div>
+        <div class="dialog-content-action-buttons">
+          <button class="cancel-btn">Cancel</button>
+          <button class="send-btn">
+            Send <img src="../Assets/Mail.svg" />
+          </button>
+        </div>
+      </dialog>
+    </section>
+    <script>
+      const dialog = document.getElementById("myDialog");
+      const openDialogButton = document.getElementById("openDialog");
+      const closeDialogButton = document.getElementById("closeDialog");
+      openDialogButton.addEventListener("click", () => {
+        dialog.showModal();
+      });
+      closeDialogButton.addEventListener("click", () => {
+        dialog.close();
+      });
+    </script>
+  </body>
+</html>
