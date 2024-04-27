@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>ToDo list</title>
+  </head>
+  <body>
+    <section class="board">
+      <div class="list__wrapper">
+        <div class="list__container">
+          <input class="list__search" placeholder="Wyszukaj..." />
+          <ul class="list">
+            <li class="list__element">Thing a</li>
+            <li class="list__element">Thing a</li>
+          </ul>
+        </div>
+        <div class="list__action">
+          <button class="list__add-btn" onclick="addList()">
+            <div class="plus">+</div>
+          </button>
+          <input class="list__add-input" />
+        </div>
+      </div>
+      <div class="list__wrapper">
+        <div class="list__container">
+          <input class="list__search" placeholder="Wyszukaj..." />
+          <ul class="list">
+            <li class="list__element">Thing a</li>
+            <li class="list__element">Thing a</li>
+          </ul>
+        </div>
+        <div class="list__action">
+          <button class="list__add-btn" onclick="addTask()">
+            <div class="plus">+</div>
+          </button>
+          <input class="list__add-input" />
+        </div>
+      </div>
+    </section>
+    <script src="./script.js"></script>
+  </body>
+</html>
