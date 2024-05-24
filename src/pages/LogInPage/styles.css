@@ -1,0 +1,76 @@
+.log-in {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+.log-in__close-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 35px;
+  cursor: pointer;
+}
+.log-in__close-link:hover {
+  filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(0%)
+    hue-rotate(158deg) brightness(85%) contrast(89%);
+}
+.log-in__section {
+  width: 100%;
+}
+.log-in__section--right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.log-in__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.log-in__title {
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+}
+.log-in__paragraph {
+  color: #fff;
+  font-size: 1.5rem;
+}
+.log-in__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+}
+.log-in__form .form-switch {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #b1a6a6;
+  width: auto;
+}
+.log-in__form .form-switch__btn {
+  padding: 20px 40px;
+  border-style: none;
+  background-color: transparent;
+  color: #b1a6a6;
+  cursor: pointer;
+}
+.log-in__form .form-switch__btn--active {
+  border-bottom: 1px solid black;
+  color: black;
+}
+@media screen and (min-width: 300px) and (max-width: 1000px) {
+  .log-in__section--left {
+    display: none;
+  }
+  .log-in__section--right {
+    width: 100%;
+  }
+  .log-in__close-link {
+    filter: brightness(0) saturate(100%);
+  }
+  .log-in__close-link:hover {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(25%) saturate(403%)
+      hue-rotate(180deg) brightness(95%) contrast(85%);
+  }
+}
