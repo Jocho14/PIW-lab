@@ -4,7 +4,7 @@ import "./styles.css";
 
 const SignUpForm = () => {
   //const [error, setError] = useState(false);
-  const error = false; // remove (just for sucess production build)
+  const error = false;
 
   const handleSubmit = () => {};
 
@@ -70,7 +70,7 @@ const SignUpForm = () => {
         />
       </div>
       <button className="sign-up-form__submit-btn" type="submit">
-        Utwórz konto
+        Create an account
       </button>
     </form>
   );

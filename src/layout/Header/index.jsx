@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 
+import { useUser, logout } from "../../services/user";
+
 import "./styles.css";
 import logo from "../../assets/logo.svg";
 
 const Header = () => {
+  const user = useUser();
   return (
     <nav className="fixed-navigation">
       <Link to="/">
@@ -27,9 +30,17 @@ const Header = () => {
           </a>
         </li>
 
-        <Link to="signin" className="nav-link">
-          <button className="button primary">Log in</button>
-        </Link>
+        {!!user ? (
+          <Link to="/signin" className="nav-link">
+            <button className="button primary" onClick={logout}>
+              Log out
+            </button>
+          </Link>
+        ) : (
+          <Link to="signin" className="nav-link">
+            <button className="button primary">Sign in</button>
+          </Link>
+        )}
       </ul>
       <button className="button primary hidden">Menu</button>
     </nav>

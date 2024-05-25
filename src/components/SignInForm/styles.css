@@ -28,19 +28,17 @@
 
 .sign-in-form__submit-btn {
   width: 120px;
-  height: 50px;
-  background-color: grey;
-  color: rgb(255, 255, 255);
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-style: none;
+  height: 40px;
+  border-radius: 16px;
+  background-color: var(--primary-light);
   cursor: pointer;
-  border: none;
+  transition: all 0.3s ease-in-out;
 }
 
 .sign-in-form__submit-btn:hover {
-  background-color: grey;
+  background-color: var(--hover);
+  color: var(--white);
 }
 
 .error--label {

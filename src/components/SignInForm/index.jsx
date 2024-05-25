@@ -72,7 +72,7 @@ const SignInForm = () => {
             <div></div>
           </div>
         ) : (
-          "Zaloguj się"
+          "Sign in"
         )}
       </button>
     </form>
