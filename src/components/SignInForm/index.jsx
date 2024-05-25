@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { loginWithEmail } from "../../services/user";
+
 import "./styles.css";
 
 const SignInForm = () => {
@@ -13,18 +15,13 @@ const SignInForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);
-    let loginSuccessful = false;
     try {
-      await login(email, password);
-      loginSuccessful = true;
-    } catch (error) {
-      setError(true);
-      console.log("FFFAILEDD");
+      setLoading(true);
+      const response = await loginWithEmail(email, password, navigate);
+      const data = await response.json();
+    } catch (err) {
+      setError(err.message);
     } finally {
-      if (loginSuccessful) {
-        navigate("/");
-      }
       setLoading(false);
     }
   };

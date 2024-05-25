@@ -1,12 +1,30 @@
-//import { useState } from "react";
+import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+
+import { signupWithEmail } from "../../services/user";
 
 import "./styles.css";
 
 const SignUpForm = () => {
-  //const [error, setError] = useState(false);
-  const error = false;
+  const navigate = useNavigate();
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = () => {};
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      setLoading(true);
+      const response = await signupWithEmail(email, password, navigate);
+      const data = await response.json();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <form className="sign-up-form" onSubmit={handleSubmit}>
@@ -21,36 +39,7 @@ const SignUpForm = () => {
           className={`sign-up-form__input ${error ? "error--input" : ""}`}
           id="email"
           type="email"
-          required
-        />
-      </div>
-
-      <div className="sign-up-form__container">
-        <label
-          className={`sign-up-form__label ${error ? "error--label" : ""}`}
-          htmlFor="name"
-        >
-          Name
-        </label>
-        <input
-          className={`sign-up-form__input ${error ? "error--input" : ""}`}
-          id="name"
-          type="text"
-          required
-        />
-      </div>
-
-      <div className="sign-up-form__container">
-        <label
-          className={`sign-up-form__label ${error ? "error--label" : ""}`}
-          htmlFor="surname"
-        >
-          Surname {"(optional)"}
-        </label>
-        <input
-          className={`sign-up-form__input ${error ? "error--input" : ""}`}
-          id="surname"
-          type="text"
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </div>
@@ -66,11 +55,21 @@ const SignUpForm = () => {
           className={`sign-up-form__input ${error ? "error--input" : ""}`}
           id="password"
           type="password"
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
       </div>
       <button className="sign-up-form__submit-btn" type="submit">
-        Create an account
+        {loading ? (
+          <div className="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        ) : (
+          "Create account"
+        )}
       </button>
     </form>
   );

@@ -1,19 +1,46 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import { doc, getDoc } from "firebase/firestore";
+import { firestore } from "../../services/init";
+
 import mail from "../../assets/Mail.svg";
-import hotelData from "../../data";
 import "./styles.css";
 
 const HotelDetailPage = () => {
   const { hotelId } = useParams();
-  console.log(hotelId);
+  const [hotel, setHotel] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const findById = (id) => {
-    return hotelData.find((hotel) => hotel.id.toString() === id);
-  };
+  useEffect(() => {
+    const fetchHotel = async () => {
+      try {
+        const hotelDoc = doc(firestore, "hotel_data", "hotel_" + hotelId);
+        const hotelSnapshot = await getDoc(hotelDoc);
 
-  const hotel = findById(hotelId);
-  console.log(hotel.imageUrl);
+        if (hotelSnapshot.exists()) {
+          setHotel(hotelSnapshot.data());
+        } else {
+          console.log("No such document!");
+        }
+
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching hotel:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchHotel();
+  }, [hotelId]);
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (!hotel) {
+    return <h1>Hotel not found</h1>;
+  }
 
   return (
     <section className="grid card-detail">

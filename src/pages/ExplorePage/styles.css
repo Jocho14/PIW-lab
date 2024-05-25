@@ -46,3 +46,18 @@
   outline: 1px solid var(--hover);
   transition: var(--transition);
 }
+
+.sort-options {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.sort-options label {
+  margin-right: 10px;
+}
+
+.sort-options select {
+  padding: 5px;
+  font-size: 16px;
+}

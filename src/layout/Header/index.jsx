@@ -30,6 +30,12 @@ const Header = () => {
           </a>
         </li>
 
+        {!!user && (
+          <li>
+            <h4>Hi, {user.email.split("@")[0]}</h4>
+          </li>
+        )}
+
         {!!user ? (
           <Link to="/signin" className="nav-link">
             <button className="button primary" onClick={logout}>
