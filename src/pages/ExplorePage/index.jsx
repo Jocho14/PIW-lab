@@ -3,7 +3,6 @@ import HotelCardGroup from "../../components/HotelCardGroup";
 import { firestore } from "../../services/init";
 import { collection, getDocs } from "firebase/firestore";
 
-import ArrowIcon from "../../assets/Arrow.svg";
 import "./styles.css";
 
 const ExplorePage = () => {
@@ -92,19 +91,6 @@ const ExplorePage = () => {
         ) : (
           <h1>No hotels found</h1>
         )}
-      </section>
-      <section id="rent" className="footer grid">
-        <div className="card-image"></div>
-        <article className="footer-details">
-          <p className="title-large">Rent with us!</p>
-          <p className="text-middle">
-            If you’re a hotel or an apartament owner who’s looking to reach more
-            customers you can now rent your property with TranquilTravels.{" "}
-          </p>
-          <button className="button secondary">
-            Learn more <img src={ArrowIcon} />
-          </button>
-        </article>
       </section>
     </div>
   );
