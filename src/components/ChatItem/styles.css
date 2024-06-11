@@ -1,0 +1,28 @@
+.chat-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.chat-item:hover {
+  background-color: #f0f0f0;
+}
+
+.chat-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-name {
+  font-weight: bold;
+}
+
+.chat-message {
+  color: gray;
+  font-size: 14px;
+}
+
+.chat-time {
+  color: gray;
+  font-size: 12px;
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { auth } from "./init";
+import { collection, doc, setDoc, getDoc } from "firebase/firestore";
+import { auth, firestore } from "./init";
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -13,7 +14,18 @@ const googleProvider = new GoogleAuthProvider();
 
 export const loginWithGoogle = async (navigate) => {
   const userCredentials = await signInWithPopup(auth, googleProvider);
-  if (userCredentials.user) navigate("/");
+  if (userCredentials.user) {
+    const userDocRef = doc(firestore, "users", userCredentials.user.uid);
+    const userDoc = await getDoc(userDocRef);
+    if (!userDoc.exists()) {
+      await setDoc(userDocRef, {
+        uid: userCredentials.user.uid,
+        email: userCredentials.user.email,
+        displayName: userCredentials.user.displayName || "Anonymous",
+      });
+    }
+    navigate("/");
+  }
 };
 
 export const signupWithEmail = async (email, password, navigate) => {
@@ -23,7 +35,14 @@ export const signupWithEmail = async (email, password, navigate) => {
       email,
       password
     );
-    if (userCredentials.user) navigate("/");
+    if (userCredentials.user) {
+      await setDoc(doc(firestore, "users", userCredentials.user.uid), {
+        uid: userCredentials.user.uid,
+        email: userCredentials.user.email,
+        displayName: userCredentials.user.displayName || "Anonymous",
+      });
+    }
+    navigate("/");
   } catch (error) {
     console.error("Error signing up:", error);
   }

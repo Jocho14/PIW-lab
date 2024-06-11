@@ -32,3 +32,12 @@
   color: var(--hover);
   transition: var(--transition);
 }
+
+.cart-icon {
+  width: 30px;
+}
+
+.cart-icon:hover {
+  filter: brightness(0) saturate(100%) invert(38%) sepia(96%) saturate(3432%)
+    hue-rotate(55deg) brightness(99%) contrast(101%);
+}

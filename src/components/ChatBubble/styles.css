@@ -1,0 +1,19 @@
+.chat-bubble {
+  width: 80px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-image: url("../../assets/chat-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.chat-bubble:hover {
+  transform: scale(1.1);
+}

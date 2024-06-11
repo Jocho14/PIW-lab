@@ -1,0 +1,35 @@
+.chat-page-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-section {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-bar-input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+}
+
+.recent-chats {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.chat-list {
+  margin-top: 10px;
+}

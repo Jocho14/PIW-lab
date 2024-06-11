@@ -4,6 +4,7 @@ import { useUser, logout } from "../../services/user";
 
 import "./styles.css";
 import logo from "../../assets/logo.svg";
+import cartIcon from "../../assets/cart-icon.svg";
 
 const Header = () => {
   const user = useUser();
@@ -35,6 +36,12 @@ const Header = () => {
             <h4>Hi, {user.email.split("@")[0]}</h4>
           </li>
         )}
+
+        <li>
+          <Link to="/cart">
+            <img className="cart-icon" src={cartIcon} />
+          </Link>
+        </li>
 
         {!!user ? (
           <Link to="/signin" className="nav-link">

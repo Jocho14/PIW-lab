@@ -1,0 +1,48 @@
+.chat-page-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.no-chat-selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 1.5em;
+  color: #aaa;
+}
+
+.back-button {
+  width: 80px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 16px;
+  margin-right: 10px;
+  bottom: 40px;
+  left: 40px;
+  cursor: pointer;
+  background-color: var(--primary-light);
+  background-image: url("../../assets/back-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+}
